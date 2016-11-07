@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="prop2xml:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/prop2xml_jar</output-path>
+    <root id="archive" name="prop2xml.jar">
+      <element id="module-output" name="prop2xml" />
+    </root>
+  </artifact>
+</component>
