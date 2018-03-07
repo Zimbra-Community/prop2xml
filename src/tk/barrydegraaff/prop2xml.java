@@ -31,7 +31,10 @@ public class prop2xml {
             Enumeration e = props.propertyNames();
             while (e.hasMoreElements()) {
                 String key = (String) e.nextElement();
-                out.println("<property name=\""+key+"\">"+props.getProperty(key)+"</property>");
+                //Skip keys that have `secret` in their name, allows to leave stuff in the .properties file and not expose to Zimlet
+                if(key.indexOf("secret")==-1) {
+                    out.println("<property name=\"" + key + "\">" + props.getProperty(key) + "</property>");
+                }
             }
 
             out.println("</global></zimletConfig>");
