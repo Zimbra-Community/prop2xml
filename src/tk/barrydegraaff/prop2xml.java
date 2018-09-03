@@ -32,7 +32,7 @@ public class prop2xml {
             while (e.hasMoreElements()) {
                 String key = (String) e.nextElement();
                 //Skip keys that have `secret` in their name, allows to leave stuff in the .properties file and not expose to Zimlet
-                if(!key.contains("secret")) {
+                if(!key.contains("secret") && !key.contains(("db_connect_string"))) {
                     out.println("<property name=\"" + key + "\">" + props.getProperty(key) + "</property>");
                 }
             }
