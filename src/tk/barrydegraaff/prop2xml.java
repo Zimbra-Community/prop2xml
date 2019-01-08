@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Properties;
+import static org.apache.commons.lang.StringEscapeUtils.escapeJava;
+
 
 public class prop2xml {
 
@@ -33,7 +35,7 @@ public class prop2xml {
                 String key = (String) e.nextElement();
                 //Skip keys that have `secret` in their name, allows to leave stuff in the .properties file and not expose to Zimlet
                 if(!key.contains("secret") && !key.contains(("db_connect_string"))) {
-                    out.println("<property name=\"" + key + "\">" + props.getProperty(key) + "</property>");
+                    out.println("<property name=\"" + key + "\">" + escapeJava(props.getProperty(key)) + "</property>");
                 }
             }
 
